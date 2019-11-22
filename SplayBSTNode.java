@@ -1,5 +1,6 @@
 /**
  * Author: Blake Furlano
+ cool
  * Date: 11/16/2019
  * Compare Three Trees Assignment
  * This is the SplayNode Class
