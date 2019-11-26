@@ -1,0 +1,381 @@
+Test Splay Tree driver
+*********Insert Peculiar**************
+************ Print by Level Order***********
+Peculiar        
+Size = 1
+Height: 0
+*********Insert Crapo**************
+************ Print by Level Order***********
+Crapo        
+Peculiar        
+Size = 2
+Height: 1
+*********Insert Accident**************
+************ Print by Level Order***********
+Accident        
+Crapo        
+Peculiar        
+Size = 3
+Height: 2
+*********Insert Eau Claire**************
+************ Print by Level Order***********
+Eau Claire        
+Accident        Peculiar        
+Crapo        
+Size = 4
+Height: 2
+*********Insert Boring**************
+************ Print by Level Order***********
+Boring        
+Accident        Eau Claire        
+Crapo        Peculiar        
+Size = 5
+Height: 2
+*********Insert Hell**************
+************ Print by Level Order***********
+Hell        
+Boring        Peculiar        
+Accident        Eau Claire        
+Crapo        
+Size = 6
+Height: 3
+*********Insert Walla Walla**************
+************ Print by Level Order***********
+Walla Walla        
+Peculiar        
+Hell        
+Boring        
+Accident        Eau Claire        
+Crapo        
+Size = 7
+Height: 5
+*********Insert Surprise**************
+************ Print by Level Order***********
+Surprise        
+Peculiar        Walla Walla        
+Hell        
+Boring        
+Accident        Eau Claire        
+Crapo        
+Size = 8
+Height: 5
+*********Insert Joseph**************
+************ Print by Level Order***********
+Joseph        
+Hell        Surprise        
+Boring        Peculiar        Walla Walla        
+Accident        Eau Claire        
+Crapo        
+Size = 9
+Height: 4
+*********Insert Romance**************
+************ Print by Level Order***********
+Romance        
+Joseph        Surprise        
+Hell        Peculiar        Walla Walla        
+Boring        
+Accident        Eau Claire        
+Crapo        
+Size = 10
+Height: 5
+*********Insert Mars**************
+************ Print by Level Order***********
+Mars        
+Joseph        Romance        
+Hell        Peculiar        Surprise        
+Boring        Walla Walla        
+Accident        Eau Claire        
+Crapo        
+Size = 11
+Height: 5
+*********Insert Nuttsville**************
+************ Print by Level Order***********
+Nuttsville        
+Mars        Peculiar        
+Joseph        Romance        
+Hell        Surprise        
+Boring        Walla Walla        
+Accident        Eau Claire        
+Crapo        
+Size = 12
+Height: 6
+*********Insert Rough and Ready**************
+************ Print by Level Order***********
+Rough and Ready        
+Peculiar        Surprise        
+Nuttsville        Romance        Walla Walla        
+Mars        
+Joseph        
+Hell        
+Boring        
+Accident        Eau Claire        
+Crapo        
+Size = 13
+Height: 8
+*********Insert Dynamite**************
+************ Print by Level Order***********
+Dynamite        
+Boring        Rough and Ready        
+Accident        Crapo        Nuttsville        Surprise        
+Joseph        Peculiar        Walla Walla        
+Hell        Mars        Romance        
+Eau Claire        
+Size = 14
+Height: 5
+*********Insert Good Grief**************
+************ Print by Level Order***********
+Good Grief        
+Dynamite        Rough and Ready        
+Boring        Eau Claire        Joseph        Surprise        
+Accident        Crapo        Hell        Nuttsville        Walla Walla        
+Mars        Peculiar        
+Romance        
+Size = 15
+Height: 5
+*********Insert Zarephath**************
+************ Print by Level Order***********
+Zarephath        
+Rough and Ready        
+Good Grief        Walla Walla        
+Dynamite        Joseph        Surprise        
+Boring        Eau Claire        Hell        Nuttsville        
+Accident        Crapo        Mars        Peculiar        
+Romance        
+Size = 16
+Height: 6
+************* Deleted: Eau Claire **************************
+************ Print by Level Order***********
+Dynamite        
+Boring        Rough and Ready        
+Accident        Crapo        Good Grief        Zarephath        
+Joseph        Walla Walla        
+Hell        Nuttsville        Surprise        
+Mars        Peculiar        
+Romance        
+Size = 15
+Height: 6
+************* Deleted: Accident **************************
+************ Print by Level Order***********
+Accident        
+Boring        
+Dynamite        
+Crapo        Rough and Ready        
+Good Grief        Zarephath        
+Joseph        Walla Walla        
+Hell        Nuttsville        Surprise        
+Mars        Peculiar        
+Romance        
+Size = 14
+Height: 8
+************* Deleted: Rough and Ready **************************
+************ Print by Level Order***********
+Romance        
+Dynamite        Zarephath        
+Accident        Joseph        Walla Walla        
+Boring        Good Grief        Peculiar        Surprise        
+Crapo        Hell        Nuttsville        
+Mars        
+Size = 13
+Height: 5
+Height: -1
+Size = 0
+*********Insert Accident**************
+************ Print by Level Order***********
+Accident        
+Size = 1
+Height: 0
+*********Insert Boring**************
+************ Print by Level Order***********
+Boring        
+Accident        
+Size = 2
+Height: 1
+*********Insert Crapo**************
+************ Print by Level Order***********
+Crapo        
+Boring        
+Accident        
+Size = 3
+Height: 2
+*********Insert Dynamite**************
+************ Print by Level Order***********
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 4
+Height: 3
+*********Insert Eau Claire**************
+************ Print by Level Order***********
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 5
+Height: 4
+*********Insert Good Grief**************
+************ Print by Level Order***********
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 6
+Height: 5
+*********Insert Hell**************
+************ Print by Level Order***********
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 7
+Height: 6
+*********Insert Joseph**************
+************ Print by Level Order***********
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 8
+Height: 7
+*********Insert Mars**************
+************ Print by Level Order***********
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 9
+Height: 8
+*********Insert NuttsVille**************
+************ Print by Level Order***********
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 10
+Height: 9
+*********Insert Peculiar**************
+************ Print by Level Order***********
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 11
+Height: 10
+*********Insert Romance**************
+************ Print by Level Order***********
+Romance        
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 12
+Height: 11
+*********Insert Rough and Ready**************
+************ Print by Level Order***********
+Rough and Ready        
+Romance        
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 13
+Height: 12
+*********Insert Surprise**************
+************ Print by Level Order***********
+Surprise        
+Rough and Ready        
+Romance        
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 14
+Height: 13
+*********Insert Walla Walla**************
+************ Print by Level Order***********
+Walla Walla        
+Surprise        
+Rough and Ready        
+Romance        
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 15
+Height: 14
+*********Insert Zarephath**************
+************ Print by Level Order***********
+Zarephath        
+Walla Walla        
+Surprise        
+Rough and Ready        
+Romance        
+Peculiar        
+NuttsVille        
+Mars        
+Joseph        
+Hell        
+Good Grief        
+Eau Claire        
+Dynamite        
+Crapo        
+Boring        
+Accident        
+Size = 16
+Height: 15
