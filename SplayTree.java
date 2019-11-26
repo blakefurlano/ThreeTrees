@@ -1,4 +1,3 @@
-
 /**
  * Author: Mason Waters
  * Date: 11/16/2019
@@ -6,14 +5,18 @@
  * This is the SplayTree Class
  * In collaboration with: Blake Furlano and Robert Hable
  */
+import java.io.*;
 public class SplayTree<E extends Comparable<E>> {
     private SplayBSTNode<E> root;
     private int size;
-
+    public int compareNum=0;
     //Constructor
     public SplayTree() {
         root = null;
         size = 0;
+    }
+    public int getCompareNum(){
+        return compareNum;
     }
 
     //Another Constructor
@@ -31,7 +34,15 @@ public class SplayTree<E extends Comparable<E>> {
         return (search(it) != null);
     }
 
+    public void clearTree(){
+        root = null;
+        size =0;
 
+        System.out.println("Height: " + getHeight());
+        //pout.println("Height: " + getHeight());
+        System.out.println("Size = " + size);
+        //pout.println("Size = " + size);
+    }
 
 
     /**
@@ -43,6 +54,7 @@ public class SplayTree<E extends Comparable<E>> {
         SplayBSTNode<E> node = root;
         while (node != null) {
             int compareResult = it.compareTo(node.getElement());
+            compareNum++;
             if (compareResult < 0) {
                 node = node.getLeft();
             } else if (compareResult > 0) {
@@ -64,9 +76,17 @@ public class SplayTree<E extends Comparable<E>> {
      */
 
     public void insert(E it) {
+        //System.out.println("*********Insert " + it + "**************");
+        //pout.println("*********Insert " + it + "**************");
         SplayBSTNode<E> newNode = new SplayBSTNode<E>(it);
         if (root == null) {
             root = newNode;
+            size++;
+            //printLevelOrder(pout);
+            //System.out.println("Size = " + size);
+           // pout.println("Size = " + size);
+            //System.out.println("Height: " + getHeight());
+            //pout.println("Height: " + getHeight());
             return;
         }
         //System.out.println(root.getElement());
@@ -93,80 +113,60 @@ public class SplayTree<E extends Comparable<E>> {
             newNode.setParent(parent);
         }
         size++;
-        //System.out.println("right here");
+       // System.out.println("right here");
         splay(newNode);
+        //printLevelOrder(pout);
+       // System.out.println("Size = " + size);
+        //pout.println("Size = " + size);
+        //System.out.println("Height: " + getHeight());
+        //pout.println("Height: " + getHeight());
     }
-
-
 
     /**
      * This method calls a helper to delete an element in the tree
      * @param it is the elemtn called ot be deleted
      */
     public void delete(E it) {
-            SplayBSTNode<E> parent = null;
-            SplayBSTNode<E> child = null;
-            SplayBSTNode<E> node = root;
-            //find the node that contains it
-            if(node.getElement() == it){
-                join(node.getLeft(), node.getRight());
-            }
-            else {
-                while (node != null && node.getElement() != it) {
-                    parent = node;
-                    int compareResult = it.compareTo(node.getElement());
-                    if (compareResult < 0) {
-                        node = node.getLeft();
-                    } else {
-                        node = node.getRight();
-                    }
-                }
-                if (node == null) {
-                    System.out.println("Failed to find: " + it + " for removal.");
-                    return;
-                }
-                if (node != root) {
-                    splay(node);
-                }
-                SplayBSTNode<E> rightTreeroot = node.getRight();
-                SplayBSTNode<E> leftTreeRoot = node.getLeft();
-                join(leftTreeRoot, rightTreeroot);
-            }/*
+        SplayBSTNode<E> parent = null;
+        SplayBSTNode<E> child = null;
+        SplayBSTNode<E> node = root;
+        if(node.getElement() == it){
+            join(node.getLeft(),node.getRight());
+        }
+        else {
+            while (node != null && node.getElement() != it) {
+                parent = node;
 
-            System.out.println(node + "here");
-
-            if(leftTreeRoot.hasRight()) {
-
-                SplayBSTNode<E> checkNode = leftTreeRoot.getRight();
-                System.out.println("here");
-                if(checkNode == null){
-                    leftTreeRoot.setParent(null);
-
-                    leftTreeRoot.setRight(rightTreeroot);
-
-
-                }
-                while (checkNode != null) {
-
-                    parent = checkNode;
-                    if (parent.getRight() == null) {
-                        System.out.println("here");
-                        splay(parent);
-                        parent.setRight(rightTreeroot);
-                        checkNode = null;
-
-                    } else {
-                        checkNode = checkNode.getRight();
-                    }
+                int compareResult = it.compareTo(node.getElement());
+                if (compareResult <= 0) {
+                    node = node.getLeft();
+                } else {
+                    node = node.getRight();
                 }
             }
-            else{
-                splay(rightTreeroot);
+            if (node == null) {
+                System.out.println("Couldn't find " + it + " in the tree");
+                return;
             }
-*/
+            //if you are here, you have found the node
+            if (node != root) {
+                splay(node);//the node we want to delete is now in the root
+            }
+            SplayBSTNode<E> rightTreeRoot = node.getRight();//root for the right sub tree
+            SplayBSTNode<E> leftTreeRoot = node.getLeft();//root for the left sub tree
+
+            join(leftTreeRoot, rightTreeRoot);
+        }
+        size--;
+        System.out.println("************* Deleted: "+ it + " **************************");
+        //pout.println("************* Deleted: "+ it + " **************************");
+        //printLevelOrder(pout);
+        System.out.println("Size = " + size);
+        //pout.println("Size = " + size);
+        System.out.println("Height: " + getHeight());
+       // pout.println("Height: " + getHeight());
 
     }
-
 
 
 
@@ -199,15 +199,10 @@ public class SplayTree<E extends Comparable<E>> {
         SplayBSTNode<E> parent = null;
         while (node.hasRight()) {
             parent = node;
-            if(parent.getRight() == null){
-                return  parent;
-            }
-            else{
-                node = parent.getRight();
-            }
-            //System.out.println("Here max");
-            //node.setRight(node);
-
+            if(parent.getRight() == null)
+                return parent;
+            else
+            node = parent.getRight();
         }
         return node;
     }
@@ -217,11 +212,11 @@ public class SplayTree<E extends Comparable<E>> {
      * @param x is the tree called
      */
     private void splay(SplayBSTNode<E> x) {
-       // System.out.println("in splay " + x.getElement());
+        //System.out.println("in splay " + x.getElement());
         while (x.getParent() != null) {
             SplayBSTNode<E> Parent = x.getParent();
             SplayBSTNode<E> GrandParent = Parent.getParent();
-           // System.out.println("HERE");
+            //System.out.println("HERE");
             //zig
             if (GrandParent == null) {
 
@@ -337,11 +332,14 @@ public class SplayTree<E extends Comparable<E>> {
         QueueList<SplayBSTNode> queue = new QueueList<SplayBSTNode>();
         //int levelNodes = 0;
         queue.enqueue(root);
+        System.out.println("************ Print by Level Order***********");
+        //pout.println("************ Print by Level Order***********");
         while (!queue.isEmpty()) {
             int levelNodes = queue.size();
             while (levelNodes > 0) {
                 SplayBSTNode<E> n = queue.dequeue();
-                System.out.print(n.getElement() + " ");  //seperate the element on that level by a space
+                System.out.print(n.getElement() + "        ");  //seperate the element on that level by a space
+                //pout.print(n.getElement() + "        ");
                 if (n.hasLeft()) {
                     queue.enqueue(n.getLeft());
                 }
@@ -351,6 +349,7 @@ public class SplayTree<E extends Comparable<E>> {
                 levelNodes--;
             }
             System.out.println();
+            //pout.println();
         }
     }
 
@@ -370,6 +369,9 @@ public class SplayTree<E extends Comparable<E>> {
                 stack.push(node.getLeft());
             }
         }
+    }
+    public int getSize(){
+        return size;
     }
 
     /**
